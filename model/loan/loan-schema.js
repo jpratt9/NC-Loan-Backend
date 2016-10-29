@@ -9,7 +9,9 @@ const loanSchema = new Schema({
   interest_rate: { type: Number, min: 0, required: true },
   minimum_payment: { type: Number, min: 0 },
   regular_payment: { type: Number, min: 0, required: true },
-  period: { type: String, enum: ['day', 'week', 'month', 'year'], required: true},
+  remaining_amount: { type: Number, min: 0, required: true },
+  period: { type: Number, min: 1, required: true },
+  period_unit: { type: String, enum: ['day', 'week', 'month', 'year'], required: true},
   transfers: { type: Array, required: true }
 });
 
