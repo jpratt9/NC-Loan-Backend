@@ -1,4 +1,4 @@
-# nc-loan-backend
+# nc-loan
 
 [![generator-api](https://img.shields.io/badge/built%20with-generator--api-green.svg)](https://github.com/ndelvalle/generator-api)
 
