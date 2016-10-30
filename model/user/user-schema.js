@@ -5,13 +5,14 @@ passportLocalMongoose = require('passport-local-mongoose'),
 
 //email no longer needed - username must be a unique email address
 const userSchema = new Schema({
-    first_name: { type: String, required: true},
-    last_name: { type: String, required: true},
+    first_name: { type: String},
+    last_name: { type: String},
     customer_id: { type: String, required: true},
-    bank_accounts: { type: Array},
+    bank_accounts: { type: [String]},
     offers: { type: Array},
     requests: { type: Array},
-    rating: { type: Number, min: 0, max: 5},
+    num_ratings: { type: Number, default: 0},
+    rating: { type: Number, min: 0, max: 5, default: 0},
     avatar_url: { type: String},
     status: { type: String, enum: ['normal', 'suspended', 'banned'], required: true}
 });
