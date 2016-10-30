@@ -1,0 +1,22 @@
+language: node_js
+node_js:
+  - "6"
+sudo: false
+cache:
+  directories:
+    - node_modules
+branches:
+  only:
+  - /^v[.].*$/
+script: echo "just deploy"
+deploy:
+  provider: elasticbeanstalk
+    access_key_id: AKIAJL5BBJ7HKJC6CB3A
+  secret_access_key:
+    secure: "r0ZNHMtWG2u5p2OjcmW9BF2c7zQr/lt6Z7I+jJUcXP43bNbudQpSp544/bOoklWF58/OXzmxHoNUiOEb0i1+tAPPzvM8pgCLG+tQ6/2i4zfylBZcX6aH9SgyWCSShyv5V+uZDoFYJVdThpCdHBhLVgIbOWuJwxN7AesMyH0sJDjYCqK4tJf7PQ7bbiJ7JJXgmB9xidIjNRHvqdZAWdeZ4GtN27AmOt4s7DTeiaLHxya+igpFoyLSnL6xSpntAOV+3zytzN/WDhaStqsqnvu6e7DGw+0XOKwT8C1Ge5OruPKL2u9/bpClXTdNgaO30bDlJKHy8yJakRI/WnhAn2TtrbcQKZR2abNS/B072YTsxVxJOsYDyWTER7UwnaSldAmhVNDFqaBYQQuHmThuCfUwcbiwl80V7ICFA7JQ2C5n+Tv3KncYMTmqV/oDGhrCCjJe2LBSEN0hPWv0/5K12hEgNdFnJpfolP+0qo5xFX4+Loq2GC47GgMOqwt0Ofau+3l5X7Nt0w9unDHOoeigHIqiR3JLqfgXNXplRnuKSp2+JesXa+KXUDl6wp6C4d6llC9SclgKmw27iGROW3kZXaPbojyV6y6+u81BX1eact9Ywe3r8Zt6DD/wTfbwUHFFocpm4DLJt8zIrDxCn0yw/07JyTJlvVleUGWdyre4Fh+IWD4="  region: us-east-1
+  app: My First Elastic Beanstalk Application
+  env: Default-Environment
+  bucket_name: elasticbeanstalk-us-east-1-356639603928
+  on:
+    repo: YeomansIII/NC-Loan-Backend
+    tags: true
