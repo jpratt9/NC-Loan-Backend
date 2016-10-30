@@ -1,14 +1,16 @@
 const Router = require('express').Router;
 const router = new Router();
 const passport = require('passport');
+var User = require('../model/user/user-schema')
 
 router.route('/register')
     .post(function(req, res) {
-        User.register(new User({
-            username: req.body.username
-        }), req.body.password, function(err, user) {
+        User.register(new User(
+          req.body
+        ), req.body.password, function(err, user) {
             if (err) {
-                return res.render("register", {
+              console.log(err);
+                return res.json({
                     info: "Sorry. That username already exists. Try again."
                 });
             }

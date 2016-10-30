@@ -21,11 +21,14 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+app.set('view engine', 'html');
 app.use(helmet());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(morgan('tiny'));
+app.use(passport.initialize());
 app.use('/', routes);
+
 
 app.listen(config.server.port, () => {
   console.log(`Magic happens on port ${config.server.port}`);
