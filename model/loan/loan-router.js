@@ -4,7 +4,6 @@ const router = new Router();
 const passport = require('passport');
 
 router.route('/')
-  .get(passport.authenticate('bearer', { session: false }), (...args) => controller.find(...args))
   .post(passport.authenticate('bearer', { session: false }), (...args) => controller.create(...args));
 
 router.route('/:id')
