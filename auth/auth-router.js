@@ -4,9 +4,9 @@ const passport = require('passport');
 
 router.route('/register')
     .post(function(req, res) {
-        Account.register(new Account({
+        User.register(new User({
             username: req.body.username
-        }), req.body.password, function(err, account) {
+        }), req.body.password, function(err, user) {
             if (err) {
                 return res.render("register", {
                     info: "Sorry. That username already exists. Try again."

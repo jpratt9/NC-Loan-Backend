@@ -16,7 +16,7 @@ const app  = express();
 mongoose.Promise = bluebird;
 mongoose.connect(config.mongo.url);
 
-var User = require('./model/user/user-facade');
+var User = require('./model/user/user-schema');
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());

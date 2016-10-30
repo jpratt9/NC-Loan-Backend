@@ -16,6 +16,6 @@ const userSchema = new Schema({
   avatar_url: {type: String, required: true }
 });
 
+userSchema.plugin(passportLocalMongoose);
 
 module.exports = mongoose.model('User', userSchema);
-User.plugin(passportLocalMongoose);
