@@ -5,6 +5,7 @@ const user  = require('./model/user/user-router');
 const loan  = require('./model/loan/loan-router');
 const loanOffer  = require('./model/loan-offer/loan-offer-router');
 const loanRequest  = require('./model/loan-request/loan-request-router');
+const auth  = require('./auth/auth-router');
 
 
 router.route('/').get((req, res) => {
@@ -15,6 +16,6 @@ router.use('/user', user);
 router.use('/loan', loan);
 router.use('/loan-offer', loanOffer);
 router.use('/loan-request', loanRequest);
-
+router.use('/auth', auth);
 
 module.exports = router;

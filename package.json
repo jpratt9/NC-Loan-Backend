@@ -12,13 +12,16 @@
   },
   "author": "bill <jpratt9@gatech.edu>",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
     "bluebird": "^3.4.1",
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "helmet": "^2.1.2",
     "lodash": "^4.15.0",
     "mongoose": "^4.5.9",
-    "morgan": "^1.7.0"
+    "morgan": "^1.7.0",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^4.0.0"
   },
   "devDependencies": {
     "eslint": "^3.2.2",
