@@ -1,14 +1,15 @@
 const controller = require('./user-controller');
 const Router = require('express').Router;
 const router = new Router();
+const passport = require('passport');
 
 router.route('/')
-  .get((...args) => controller.find(...args))
-  .post((...args) => controller.create(...args));
+  .get(passport.authenticate('bearer', { session: false }), (...args) => controller.find(...args))
+  .post(passport.authenticate('bearer', { session: false }), (...args) => controller.create(...args));
 
 router.route('/:id')
-  .put((...args) => controller.update(...args))
-  .get((...args) => controller.findById(...args))
-  .delete((...args) => controller.remove(...args));
+  .put(passport.authenticate('bearer', { session: false }), (...args) => controller.update(...args))
+  .get(passport.authenticate('bearer', { session: false }), (...args) => controller.findById(...args))
+  .delete(passport.authenticate('bearer', { session: false }), (...args) => controller.remove(...args));
 
 module.exports = router;
