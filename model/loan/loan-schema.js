@@ -4,6 +4,7 @@ const Schema   = mongoose.Schema;
 
 const loanSchema = new Schema({
   loaner: { type: Schema.ObjectId, ref: 'User', required: true },
+  loaner_bank_account: { type: String, required: true },
   loanee: { type: Schema.ObjectId, ref: 'User', required: true },
   principle: { type: Number, required: true },
   interest_rate: { type: Number, min: 0, required: true },
