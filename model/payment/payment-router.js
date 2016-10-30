@@ -1,13 +1,14 @@
 const controller = require('./payment-controller');
 const Router = require('express').Router;
 const router = new Router();
+const passport = require('passport');
 
 router.route('/')
-  .get((...args) => controller.find(...args))
-  .post((...args) => controller.pay(...args));
+  .get(passport.authenticate('bearer', { session: false }), (...args) => controller.find(...args))
+  .post(passport.authenticate('bearer', { session: false }), (...args) => controller.pay(...args));
 
 router.route('/:id')
-  .put((...args) => controller.update(...args))
-  .get((...args) => controller.findById(...args));
+  .put(passport.authenticate('bearer', { session: false }), (...args) => controller.update(...args))
+  .get(passport.authenticate('bearer', { session: false }), (...args) => controller.findById(...args));
 
 module.exports = router;
