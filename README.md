@@ -2,7 +2,7 @@
 
 [![generator-api](https://img.shields.io/badge/built%20with-generator--api-green.svg)](https://github.com/ndelvalle/generator-api)
 
-
+[![Build Status](https://travis-ci.com/YeomansIII/NC-Loan-Backend.svg?token=zqF52HiepGXEgVDa3pRv&branch=master)](https://travis-ci.com/YeomansIII/NC-Loan-Backend)
 
 
 

@@ -6,6 +6,11 @@ const jwt = require('jwt-simple');
 const secrets = require('../secrets');
 
 router.route('/register')
+// post:
+//  - populate bank_accounts with accounts belonging to
+//    this customer_id
+//  - populate first_name and last_name with the ones associated
+//    with this user's customer_id
     .post(function (req, res) {
         User.register(new User(
             req.body

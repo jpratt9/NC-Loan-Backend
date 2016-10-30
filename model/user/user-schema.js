@@ -1,6 +1,6 @@
 const mongoose = require('mongoose'),
-    Schema = mongoose.Schema;
-passportLocalMongoose = require('passport-local-mongoose'),
+    Schema = mongoose.Schema,
+    passportLocalMongoose = require('passport-local-mongoose'),
     bcrypt = require('bcrypt-nodejs');
 
 //email no longer needed - username must be a unique email address
@@ -10,7 +10,7 @@ const userSchema = new Schema({
     customer_id: { type: String, required: true},
     bank_accounts: { type: [String]},
     offers: { type: Array},
-    requests: { type: Array},
+    //requests: { type: Array},
     num_ratings: { type: Number, default: 0},
     rating: { type: Number, min: 0, max: 5, default: 0},
     avatar_url: { type: String},

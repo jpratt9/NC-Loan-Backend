@@ -3,10 +3,10 @@ const paymentModel  = require('./payment-facade');
 
 
 class PaymentController extends Controller {
-  function pay(req, res, next) {
+  pay(req, res, next) {
 
   }
-  
+
 }
 
 module.exports = new PaymentController(paymentModel);
