@@ -1,7 +1,7 @@
 const mongoose = require('mongoose'),
     Schema = mongoose.Schema,
     passportLocalMongoose = require('passport-local-mongoose'),
-    bcrypt = require(' bcrypt-nodejs');
+    bcrypt = require('bcrypt-nodejs');
 
 //email no longer needed - username must be a unique email address
 const userSchema = new Schema({
