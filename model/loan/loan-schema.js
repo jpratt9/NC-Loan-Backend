@@ -9,13 +9,13 @@ const loanSchema = new Schema({
   principle: { type: Number, required: true },
   interest_rate: { type: Number, min: 0, required: true },
   minimum_payment: { type: Number, min: 0 },
-  next_payment: { type: Number, min: 0, required: true },
-  next_payment_due_date: { type: Date, required: true }, 
-  remaining_amount: { type: Number, min: 0, required: true },
+  next_payment: { type: Number, min: 0 },
+  next_payment_due_date: { type: Date },
+  remaining_amount: { type: Number, min: 0 },
   period: { type: Number, min: 1, required: true },
   period_unit: { type: String, enum: ['day', 'week', 'month', 'year'], required: true},
   status: { type: String, enum: ['in_progress', 'complete', 'overdue'], required: true},
-  payments: { type: Array, required: true }
+  payments: { type: [Number], required: true }
 });
 
 
