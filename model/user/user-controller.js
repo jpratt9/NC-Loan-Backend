@@ -12,30 +12,35 @@ class UserController extends Controller {
   //  - DO change: email, loans, rating, avatar_url,
   //    offers, requests, status
   put(req, res, next) {
-    var user = User.findOne({"customer_id" : req.customer_id});
-    if (user == null)
     var body = req.body;
+    if (!utils.hasIt(body, 'customer_id')) {
+      res.json( {error : "customer_id cannot be null/empty."} );
+    }
+    var user = User.findOne({"customer_id" : body.customer_id});
+    if (user == null) {
+      res.json({error : "Attempted to modify non-existent user - " + body.customer_id + "."});
+    }
     if (utils.hasIt(body, 'email')) {
       user.email = body.email;
     }
 
-    if (req.hasOwnProperty('loan')) {
-      user.loans.push(req.loan);
+    if (utils.hasIt(body, 'loan')) {
+      user.loans.push(body.loan);
     }
 
-    if (req.hasOwnProperty('rating')) {
-      if (req.rating > 5 || req.rating < 0) {
+    if (utils.hasIt(body,'rating')) {
+      if (body.rating > 5 || body.rating < 0) {
         res.json({error : "Rating must be within range 0 to 5 (inclusive)."})
       }
-      user.rating = (user.num_ratings * user.rating + req.rating) / (user.num_ratings + 1);
+      user.rating = (user.num_ratings * user.rating + body.rating) / (user.num_ratings + 1);
       user.num_ratings++;
     }
 
-    if (req.hasOwnProperty('avatar_url')) {
+    if (utils.hasIt(body,'avatar_url')) {
       user.avatar_url = req.avatar_url;
     }
 
-    if (req.hasOwnProperty('offer')) {
+    if (utils.hasIt(body,'offer')) {
       user.offers.push(req.offer);
     }
 
@@ -43,7 +48,7 @@ class UserController extends Controller {
       user.requests.push(req.request);
     }*/
 
-    if (req.hasOwnProperty('status')) {
+    if (utils.hasIt(body,'status')) {
       // check that status is valid
       var statuses = User.schema.path('status').enumValues;
       if (statuses.includes(req.status)) {
