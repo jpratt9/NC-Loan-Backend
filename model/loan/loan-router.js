@@ -9,6 +9,6 @@ router.route('/')
 
 router.route('/:id')
   .put(passport.authenticate('bearer', { session: false }), (...args) => controller.update(...args))
-  .get(passport.authenticate('bearer', { session: false }), (...args) => controller.findById(...args))
+  .get(passport.authenticate('bearer', { session: false }), (...args) => controller.findById(...args));
 
 module.exports = router;
