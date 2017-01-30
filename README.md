@@ -6,7 +6,7 @@
 
 ## dependencies
 
-node 6.3.x or later and mongodb
+node 6.3.x or later and mongodb 
 
 ## developing
 
